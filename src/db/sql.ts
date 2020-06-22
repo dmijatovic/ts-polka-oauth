@@ -57,7 +57,7 @@ export function addUser(user:iUser){
 }
 
 export function updateUser(user:iUser){
-  console.log("updateUser...", user)
+  // console.log("updateUser...", user)
   return pgdb.query(`UPDATE users SET roles=$2,
     first_name=$3,last_name=$4,email=$5,birth_date=$6
     WHERE id=$1
