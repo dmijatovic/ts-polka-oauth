@@ -1,6 +1,5 @@
 import { ServerResponse } from 'http'
 import {verifyToken} from '../jwt'
-import {JsonWebTokenError} from 'jsonwebtoken'
 import {respOK,respErr} from '../utils'
 
 export default (req:any,res:ServerResponse)=>{
