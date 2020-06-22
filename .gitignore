@@ -3,6 +3,7 @@
 coverage
 build
 dist
+auth
 
 # dependencies
 /node_modules

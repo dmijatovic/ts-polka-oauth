@@ -1,4 +1,4 @@
-import { ServerResponse } from 'http'
+import {ServerResponse} from 'http'
 import {verifyToken} from '../jwt'
 import {respOK,respErr} from '../utils'
 import {iUserProfile} from '../db/sql'

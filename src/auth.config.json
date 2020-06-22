@@ -8,7 +8,7 @@
   "pgOptions":{
     "user":"postgres",
     "password": "changeme",
-    "host": "localhost",
+    "host": "pgdb",
     "port": 5432,
     "database":"auth_db"
   },

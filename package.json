@@ -2,9 +2,9 @@
   "name": "ts-polka-auth",
   "version": "0.0.1",
   "description": "",
-  "main": "auth/server.js",
+  "main": "auth/index.js",
   "scripts": {
-    "start": "node auth/server.js",
+    "start": "node auth/index.js",
     "build:tsc": "tsc -p .",
     "build": "ncc build src/index.ts -o auth",
     "dev": "nodemon --exec ts-node src/index.ts",

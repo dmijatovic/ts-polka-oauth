@@ -23,3 +23,15 @@ npm i -D typescript ts-node nodemon @zeit/ncc
 npm i -D @types/node @types/polka @types/jsonwebtoken @types/bcrypt @types/pg
 
 ```
+
+## Docker
+
+Build the auth api container.
+
+```bash
+
+docker build . -t dv4all/auth:v0.1
+
+docker run -p 5433:5433 dv4all/auth:v0.1
+
+```
