@@ -1,9 +1,10 @@
 import polka, {Polka} from 'polka'
 import {json} from 'body-parser'
 
+import config from './auth.config.json'
 import auth from './auth'
 
-const PORT = process.env.API_PORT || 5433
+const PORT = process.env.API_PORT || config.apiPort || 5000
 const app:Polka = polka()
   .use(json())
 
@@ -23,10 +24,13 @@ const homeHtml=`
   </style>
   <h1>Welcome to Polka auth server</h1>
   <section>
-  This auth server should be the lightest and the fastest auth sever
-  on the world :-). Why? Because it has minimal footprint and runs in
-  the smallest Docker container possible. Then the assumption is that
-  this approach should deliver the fastest auth server.
+    <p>This authentication server should be the lightest and the fastest auth sever
+    on the world :-). Why?
+    </p><p>
+    Because it has small footprint and runs in
+    smallest Docker container possible. The assumption is that
+    this approach should deliver the fastest auth server.
+    </p>
   </section>
 `
 
