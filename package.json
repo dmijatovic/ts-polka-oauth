@@ -1,0 +1,36 @@
+{
+  "name": "ts-polka-auth",
+  "version": "0.0.1",
+  "description": "",
+  "main": "auth/server.js",
+  "scripts": {
+    "start": "node auth/server.js",
+    "build:tsc": "tsc -p .",
+    "build": "ncc build src/index.ts -o auth",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "dev:tsc": "tsc -w src/index.ts",
+    "dev:node": "nodemon --watch dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/node": "^14.0.13",
+    "@types/pg": "^7.14.3",
+    "@types/polka": "^0.5.1",
+    "@zeit/ncc": "^0.22.3",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.2.1",
+    "polka": "^0.5.2"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "apiPort":5433,
+  "jwtOptions":{
+    "algorithm": "HS512",
+    "expiresIn": 60,
+    "issuer": "dv4all"
+  },
+  "pgOptions":{
+    "user":"postgres",
+    "password": "changeme",
+    "host": "localhost",
+    "port": 5432,
+    "database":"auth_db"
+  },
+  "hashOptions":{
+    "saltRounds":7
+  },
+  "privateKey":"234234kesdfskdvk!@E^sdfsd&90-we4we"
+}
