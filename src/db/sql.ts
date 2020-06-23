@@ -15,6 +15,8 @@ export interface iUser extends iUserProfile {
   password: string,
 }
 
+const UserReturningFields=`id,roles,first_name,last_name,email,birth_date,createdate`
+
 export function getUserByEmail(email:string){
   return pgdb.query("SELECT * FROM users WHERE email=$1 LIMIT 1;",[email])
     .then(resp =>{
@@ -39,7 +41,7 @@ export function addUser(user:iUser){
   // add new user
   return pgdb.query(`INSERT INTO users
     (roles,first_name,last_name,email,password,birth_date)
-    VALUES ($1,$2,$3,$4,$5,$6) RETURNING *;`,
+    VALUES ($1,$2,$3,$4,$5,$6) RETURNING ${UserReturningFields};`,
     [
       user.roles, user.first_name,user.last_name,
       user.email,user.password,user.birth_date
@@ -61,8 +63,7 @@ export function updateUser(user:iUser){
   return pgdb.query(`UPDATE users SET roles=$2,
     first_name=$3,last_name=$4,email=$5,birth_date=$6
     WHERE id=$1
-    RETURNING id,roles,first_name,last_name,
-    email,birth_date,createdate;`,
+    RETURNING ${UserReturningFields};`,
     [
       user.id,user.roles,user.first_name,
       user.last_name,user.email,user.birth_date
@@ -82,7 +83,7 @@ export function updateUser(user:iUser){
 export function deleteUserById(id:string){
   return pgdb.query(`DELETE FROM users
     WHERE id=$1
-    RETURNING id,roles,first_name, last_name, email;`,[id])
+    RETURNING ${UserReturningFields};`,[id])
     .then(resp=>{
       // console.log("addNewUser.resp...", resp)
       if (resp.rowCount===1){
@@ -97,7 +98,7 @@ export function deleteUserById(id:string){
 }
 
 export function allUsers(){
-  return pgdb.query("SELECT id,roles,first_name,last_name,email,birth_date,createdate FROM users;")
+  return pgdb.query(`SELECT ${UserReturningFields} FROM users;`)
     .then(resp =>{
       // console.log("psql resp...", resp)
       if (resp.rowCount > 0){
