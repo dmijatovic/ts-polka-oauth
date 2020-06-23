@@ -3,7 +3,7 @@ import {Request} from 'polka'
 import {respOK,respErr} from '../utils'
 // import {addUser,allUsers,updateUser,iUser} from '../db/sql'
 import * as sql from '../db/sql'
-
+import {logInfo} from '../utils'
 
 function extractUserFromBody(req:any){
   const {body} = req
@@ -23,6 +23,7 @@ export function addNewUser(req:any,res:ServerResponse){
         respOK(res,user)
       })
       .catch(e=>{
+        logInfo(`addNewUser.sql...ERROR:${e.message}`)
         respErr(res,500,e.message)
       })
   }else{
@@ -38,6 +39,7 @@ export function updateUser(req:any,res:ServerResponse){
         respOK(res,user)
       })
       .catch(e=>{
+        logInfo(`updateUser.sql...ERROR:${e.message}`)
         respErr(res,500,e.message)
       })
   }else{
@@ -53,6 +55,7 @@ export function deleteUser(req:any,res:ServerResponse){
         respOK(res,user)
       })
       .catch(e=>{
+        logInfo(`deleteUser.sql...ERROR:${e.message}`)
         respErr(res,500,e.message)
       })
   }else{
@@ -68,6 +71,7 @@ export function deleteUserById(req:any,res:ServerResponse){
         respOK(res,user)
       })
       .catch(e=>{
+        logInfo(`deleteUserById.sql...ERROR:${e.message}`)
         respErr(res,500,e.message)
       })
   }else{
@@ -81,6 +85,7 @@ export function getAllUsers(req:any,res:ServerResponse){
       respOK(res,users)
     })
     .catch(e=>{
+      logInfo(`getAllUsers.sql...ERROR:${e.message}`)
       respErr(res,500,e.message)
     })
 }

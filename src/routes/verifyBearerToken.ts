@@ -60,7 +60,8 @@ function verifyBearerToken(token:string,res:ServerResponse,returnProfile=false){
  */
 export function verifyUser(req:any,res:ServerResponse,next:any){
   //middlware is executed on all routes
-  if (req.path.startsWith('/users')) {
+  if (req.path.startsWith('/users') ||
+    req.path.startsWith('/config')) {
     const token = extractBearerToken(req)
     if (token){
       const profile:any = verifyBearerToken(token,res,true)

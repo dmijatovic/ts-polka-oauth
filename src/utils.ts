@@ -1,4 +1,5 @@
 import { ServerResponse } from 'http'
+import process from 'process'
 
 function writeHead(res:ServerResponse, status:number){
   res.writeHead(status,{
@@ -35,4 +36,12 @@ export function respServerError(res:ServerResponse):void{
   })
   writeHead(res,500)
   res.end(json)
+}
+
+export function logInfo(message:string){
+  process.stdout.write(message)
+}
+
+export function logError(message:string){
+  process.stderr.write(message)
 }

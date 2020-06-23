@@ -1,8 +1,10 @@
 import polka, {Polka} from 'polka'
 import {json} from 'body-parser'
+import process from 'process'
 
 import config from './auth.config.json'
 import auth from './auth'
+import {logInfo} from './utils'
 
 const PORT = process.env.API_PORT || config.apiPort || 5000
 const app:Polka = polka()
@@ -41,5 +43,20 @@ app.get("/",(req,res)=>{
 auth(app)
 
 app.listen(PORT, ()=>{
-  console.log("Node server on port ",PORT)
+  // console.log("Node server on port ",PORT)
+  logInfo(`Polka server on port ${PORT}`)
+})
+
+// listen to container/process stop
+// and stop polka server
+process.on("SIGINT",()=>{
+  // console.info("Closing node server on SIGINT")
+  logInfo("Closing polka server on SIGINT")
+  process.exit(0)
+})
+
+process.on("SIGTERM",()=>{
+  // console.info("Closing node server on SIGTERM")
+  logInfo("Closing polka server on SIGTERM")
+  process.exit(0)
 })
