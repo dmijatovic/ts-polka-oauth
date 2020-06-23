@@ -19,19 +19,35 @@ services:
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - net
+    restart: on-failure
 
   auth:
     container_name: auth
     build: .
     image: dv4all/auth:v1.0
-    ports:
-      - "5433:5433"
+    expose:
+      - "5433"
     # env_file:
     #   - ./flask-api/food_api.env
     networks:
       - net
     depends_on:
       - pgdb
+    restart: on-failure
+
+  nginx:
+    container_name: nginx
+    image: "nginx:alpine"
+    volumes:
+      - ./nginx_proxy/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8080:80"
+    networks:
+      - net
+    depends_on:
+      - pgdb
+      - auth
+    restart: on-failure
 
 networks:
   net:

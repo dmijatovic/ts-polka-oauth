@@ -35,3 +35,7 @@ docker build . -t dv4all/auth:v0.1
 docker run -p 5433:5433 dv4all/auth:v0.1
 
 ```
+
+## NGINX proxy
+
+The app use nginx as reverse proxy and for SSL (todo).
