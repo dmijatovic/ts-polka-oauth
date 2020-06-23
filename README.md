@@ -75,6 +75,7 @@ process.on("SIGTERM",()=>{
 ## NGINX proxy
 
 The app use nginx as reverse proxy and for later we will try to implement SSL.
+`I was not able to implement working SSL. Further investigation is needed.`
 
 ### Reverse proxy
 
