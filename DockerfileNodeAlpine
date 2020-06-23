@@ -1,0 +1,25 @@
+FROM node:lts-alpine as build
+
+WORKDIR /home/app
+
+COPY ./package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+FROM node:lts-alpine
+
+WORKDIR /home/auth
+
+COPY --from=build /home/app/auth .
+
+EXPOSE 5433
+EXPOSE 5432
+
+CMD ["node","index.js"]
+
+
+
