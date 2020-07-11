@@ -20,6 +20,8 @@ export default (app:Polka) => {
     respErr(res,400,"GET method not supported. Try POST.")
   })
   app.post("/login",getAccessToken)
+
+  app.get("/verify",verifyBearerToken)
   app.post("/verify",verifyBearerToken)
 
   // users routes (CRUD on users)
