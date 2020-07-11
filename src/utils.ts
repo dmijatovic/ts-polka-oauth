@@ -12,7 +12,7 @@ export function respOK(res:ServerResponse, data:any):void{
   const json = JSON.stringify({
     status:200,
     statusText: "OK",
-    data
+    payload: data
   })
   writeHead(res,200)
   res.end(json)
@@ -22,7 +22,7 @@ export function respErr(res:ServerResponse, status:number,errorText:string):void
   const json = JSON.stringify({
     status,
     statusText: errorText,
-    data:null
+    payload: null
   })
   writeHead(res,status)
   res.end(json)
@@ -32,7 +32,7 @@ export function respServerError(res:ServerResponse):void{
   const json = JSON.stringify({
     status:500,
     statusText: "Server error",
-    data:null
+    payload:null
   })
   writeHead(res,500)
   res.end(json)
