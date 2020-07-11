@@ -8,6 +8,7 @@ RUN npm install
 
 COPY . .
 
+RUN npm test
 RUN npm run build
 
 FROM alpine:3.12

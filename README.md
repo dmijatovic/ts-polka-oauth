@@ -116,4 +116,6 @@ For testing typescript file with Jest there is [additional plugin ts-jest](https
 npx ts-jest config:init
 ```
 
-I did not seem to be able to test routes using supertest.
+I have created tests for most important functions in the util folder using Jest and ts-jest. This approach seem to work quite well. The tests are automatically runned when new Docker container is created.
+
+I was not able to test routes using supertest in typescript. I am not sure what the problem exactly is: typescript or polka server (which is light version of Express server).

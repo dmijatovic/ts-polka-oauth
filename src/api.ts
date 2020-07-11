@@ -12,6 +12,7 @@ import {
   updateUser, deleteUser,
   deleteUserById
 } from './users/users'
+
 import verifyBearerToken, {verifyUser} from './verify/verifyBearerToken'
 
 export const PORT = process.env.API_PORT || config.apiPort || 5000
