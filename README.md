@@ -106,5 +106,14 @@ To test I used [Jest](https://jestjs.io/docs/en/getting-started) and [Supertest]
 
 ```bash
 ## install dependencies
-npm i -D jest @types/jest ts-jest
+npm i -D jest @types/jest ts-jest supertest @types/supertest
 ```
+
+For testing typescript file with Jest there is [additional plugin ts-jest](https://kulshekhar.github.io/ts-jest/user/install).
+
+```bash
+# create jest config file for ts-jest
+npx ts-jest config:init
+```
+
+I did not seem to be able to test routes using supertest.

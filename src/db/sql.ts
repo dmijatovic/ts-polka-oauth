@@ -1,5 +1,5 @@
 import pgdb from './pgdb'
-import { hashValueSync, hashValue } from '../utils/encrypt'
+import { hashValueSync } from '../utils/encrypt'
 
 export interface iUserProfile{
   id: string,
