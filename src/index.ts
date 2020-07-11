@@ -43,7 +43,7 @@ app.get("/",(req,res)=>{
 auth(app)
 
 app.listen(PORT, ()=>{
-  console.log("Polka server on port ",PORT)
+  console.log("Polka server on port",PORT)
   logInfo(`Polka server on port ${PORT}\n`)
 })
 
