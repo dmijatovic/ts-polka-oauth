@@ -40,15 +40,24 @@ npm i -D @types/node @types/polka @types/jsonwebtoken @types/bcrypt @types/pg
 
 ## Docker
 
-Build the auth api container. Other used images for postgres and nginx are alpine images. The configuration for these images is mounted through volumes. Postgres user data is also saved in docker volume. See docker-compose.yml for exact name and location.
+Build the auth api container. The images used for postgres and nginx are alpine images. The configuration for these images is mounted through volumes. Postgres user data is saved in docker volume. See docker-compose.yml for exact name and location.
 
 ```bash
-
+# build docker image manually
+# this is also handles in docker-compose
 docker build . -t dv4all/auth:v0.1
 
 docker run -p 5433:5433 dv4all/auth:v0.1
 
 ```
+
+### Environment variables
+
+The environment variables are approached by using default `.env` file. This is default file and is loaded by docker-compose automatically. This file needs to use default environment variables like TAG. [See this page](https://docs.docker.com/compose/environment-variables/#/the-envfile-configuration-option).
+
+In Postgres image I use custom environment file to load environment variables into a container. See docker-compose env_file for more details.
+
+NOTE! The default .env file loads environment variables into docker-compose file while env_file in the docker-compose.yml file loads these into a container.
 
 ### Dockerfile NodeJS app
 
