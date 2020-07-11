@@ -16,7 +16,7 @@ WORKDIR /home/auth
 
 RUN apk add --no-cache nodejs
 
-COPY --from=build /home/app/auth .
+COPY --from=build /home/app/dist .
 
 EXPOSE 5433
 EXPOSE 5432

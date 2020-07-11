@@ -1,5 +1,5 @@
 import pgdb from './pgdb'
-import { hashValueSync, hashValue } from '../encrypt'
+import { hashValueSync, hashValue } from '../utils/encrypt'
 
 export interface iUserProfile{
   id: string,
@@ -61,12 +61,12 @@ export function addUser(user:iUser){
 export function updateUser(user:iUser){
   // console.log("updateUser...", user)
   return pgdb.query(`UPDATE users SET roles=$2,
-    first_name=$3,last_name=$4,email=$5,birth_date=$6
+    first_name=$3,last_name=$4,birth_date=$5
     WHERE id=$1
     RETURNING ${UserReturningFields};`,
     [
       user.id,user.roles,user.first_name,
-      user.last_name,user.email,user.birth_date
+      user.last_name,user.birth_date
     ]).then(resp=>{
       // console.log("addNewUser.resp...", resp)
       if (resp.rowCount===1){

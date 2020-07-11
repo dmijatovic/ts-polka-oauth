@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import {jwtOptions, privateKey} from './auth.config.json'
+import {jwtOptions, privateKey} from '../api.config.json'
 /**
  * Create signed token using jsonwebtoken library.
  * The token expires after 1 hour

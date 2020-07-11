@@ -1,6 +1,6 @@
 import {ServerResponse} from 'http'
-import {verifyToken} from '../jwt'
-import {respOK,respErr} from '../utils'
+import {verifyToken} from '../utils/jwt'
+import {respOK,respErr} from '../utils/utils'
 import {iUserProfile} from '../db/sql'
 
 const errMsg = 'Not allowed without bearer token as authorization header'

@@ -1,6 +1,6 @@
 import {Pool} from 'pg'
 
-import config from '../auth.config.json'
+import config from '../api.config.json'
 
 const pool = new Pool(config.pgOptions)
 // const pool = new Pool({

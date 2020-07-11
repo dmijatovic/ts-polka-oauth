@@ -1,9 +1,9 @@
 import {ServerResponse} from 'http'
 import {Request} from 'polka'
-import {respOK,respErr} from '../utils'
+import {respOK,respErr} from '../utils/utils'
 // import {addUser,allUsers,updateUser,iUser} from '../db/sql'
 import * as sql from '../db/sql'
-import {logInfo} from '../utils'
+import {logInfo} from '../utils/utils'
 
 function extractUserFromBody(req:any){
   const {body} = req

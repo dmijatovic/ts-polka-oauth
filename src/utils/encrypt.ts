@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import {hashOptions} from './auth.config.json'
+import {hashOptions} from '../api.config.json'
 
 export function hashValueSync(value:string):string{
   return bcrypt.hashSync(value,hashOptions.saltRounds)

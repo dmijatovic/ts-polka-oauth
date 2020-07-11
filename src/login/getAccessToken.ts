@@ -4,9 +4,9 @@ import {
   extractUserProfileFromUser,
   iUserProfile} from '../db/sql'
 
-import {signToken} from '../jwt'
-import {compareValues} from '../encrypt'
-import {respOK,respErr} from '../utils'
+import {signToken} from '../utils/jwt'
+import {compareValues} from '../utils/encrypt'
+import {respOK,respErr} from '../utils/utils'
 
 export default(req:any,res:ServerResponse)=>{
   const {body} = req

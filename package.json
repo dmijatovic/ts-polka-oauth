@@ -6,11 +6,11 @@
   "scripts": {
     "start": "node auth/index.js",
     "build:tsc": "tsc -p .",
-    "build": "ncc build src/index.ts -o auth",
+    "build": "ncc build src/index.ts -o dist",
     "dev": "nodemon --exec ts-node src/index.ts",
     "dev:tsc": "tsc -w src/index.ts",
     "dev:node": "nodemon --watch dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:tsc": "tsc -w tests/index.test.ts"
   },
   "keywords": [],
   "author": "",
@@ -21,8 +21,11 @@
     "@types/node": "^14.0.13",
     "@types/pg": "^7.14.3",
     "@types/polka": "^0.5.1",
+    "@types/supertest": "^2.0.10",
     "@zeit/ncc": "^0.22.3",
+    "jest": "^26.1.0",
     "nodemon": "^2.0.4",
+    "supertest": "^4.0.2",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
   },

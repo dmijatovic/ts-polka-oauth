@@ -99,3 +99,12 @@ export function logError(message:string){
 }
 
 ```
+
+## Testing
+
+To test I used [Jest](https://jestjs.io/docs/en/getting-started) and [Supertest](https://www.npmjs.com/package/supertest).
+
+```bash
+## install dependencies
+npm i -D jest @types/jest ts-jest
+```
