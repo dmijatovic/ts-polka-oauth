@@ -127,4 +127,12 @@ npx ts-jest config:init
 
 I have created tests for most important functions in the util folder using Jest and ts-jest. This approach seem to work quite well. The tests are automatically runned when new Docker container is created.
 
-I was not able to test routes using supertest in typescript. I am not sure what the problem exactly is: typescript or polka server (which is light version of Express server).
+When using supertest with Polka there is a slight difference in approach compared to express. Initially I had error when trying to test. Then I found instructions on the Polka github how to [instantiate supertest with polka server properly](https://github.com/lukeed/polka).
+
+Here is the gist of it but all code is api.test.ts
+
+```javascript
+// For Polka pass the handler instead of polka instance
+req = supertest(api.handler)
+
+```

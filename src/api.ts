@@ -23,6 +23,12 @@ const api:Polka = polka()
 // Home route (not protected)
 api.get("/",home)
 
+// LOGIN routes
+api.get("/login",(req:IncomingMessage,res:ServerResponse)=>{
+  respErr(res,400,"GET method not supported. Try POST.")
+})
+api.post("/login",getAccessToken)
+
 // Protected routes comming after
 // verifyUser middleware is applied
 api.use(verifyUser)
@@ -31,12 +37,6 @@ api.use(verifyUser)
 api.get("/config",(req:IncomingMessage,res:ServerResponse)=>{
   respOK(res,config)
 })
-
-// LOGIN routes
-api.get("/login",(req:IncomingMessage,res:ServerResponse)=>{
-  respErr(res,400,"GET method not supported. Try POST.")
-})
-api.post("/login",getAccessToken)
 
 // USERS routes (CRUD on users)
 api.get("/users", getAllUsers)
